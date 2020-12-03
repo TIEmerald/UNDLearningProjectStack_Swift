@@ -75,6 +75,8 @@ struct JobView: View {
               .font(.headline)
             Spacer()
             Image(systemName: "arrowshape.turn.up.right.fill")
+          }.onTapGesture {
+            jobConnectionManager.invitePeer(employee, to: job)
           }
         }
       }
