@@ -11,6 +11,8 @@
 		20BAFDA925FDE500008BEF83 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BAFDA825FDE500008BEF83 /* GridLayout.swift */; };
 		20BAFDAD25FDE803008BEF83 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BAFDAC25FDE803008BEF83 /* Array+Identifiable.swift */; };
 		20BAFDB125FDF03D008BEF83 /* Array+Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BAFDB025FDF03D008BEF83 /* Array+Only.swift */; };
+		20C4108F25FE46F300F8885F /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C4108E25FE46F300F8885F /* Pie.swift */; };
+		20C4109325FE4AB500F8885F /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C4109225FE4AB500F8885F /* Cardify.swift */; };
 		20C7D49B25B15D2500D01EBC /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7D49A25B15D2500D01EBC /* MemoryGame.swift */; };
 		20C7D49E25B15F9E00D01EBC /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7D49D25B15F9E00D01EBC /* EmojiMemoryGame.swift */; };
 		20F1C29725AAD72800D0DFF0 /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F1C29625AAD72800D0DFF0 /* MemorizeApp.swift */; };
@@ -24,6 +26,8 @@
 		20BAFDA825FDE500008BEF83 /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		20BAFDAC25FDE803008BEF83 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
 		20BAFDB025FDF03D008BEF83 /* Array+Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Only.swift"; sourceTree = "<group>"; };
+		20C4108E25FE46F300F8885F /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
+		20C4109225FE4AB500F8885F /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
 		20C7D49A25B15D2500D01EBC /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		20C7D49D25B15F9E00D01EBC /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		20F1C29325AAD72800D0DFF0 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +52,8 @@
 		20BAFDA325FDE271008BEF83 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20C4109125FE4AA300F8885F /* ViewModifier */,
+				20C4108D25FE46E600F8885F /* Shapes */,
 				20BAFDA425FDE291008BEF83 /* Grid.swift */,
 				20BAFDA825FDE500008BEF83 /* GridLayout.swift */,
 			);
@@ -61,6 +67,22 @@
 				20BAFDB025FDF03D008BEF83 /* Array+Only.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		20C4108D25FE46E600F8885F /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				20C4108E25FE46F300F8885F /* Pie.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		20C4109125FE4AA300F8885F /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				20C4109225FE4AB500F8885F /* Cardify.swift */,
+			);
+			path = ViewModifier;
 			sourceTree = "<group>";
 		};
 		20C7D49925B15CDD00D01EBC /* Models */ = {
@@ -191,10 +213,12 @@
 				20C7D49B25B15D2500D01EBC /* MemoryGame.swift in Sources */,
 				20F1C29925AAD72800D0DFF0 /* ContentView.swift in Sources */,
 				20F1C29725AAD72800D0DFF0 /* MemorizeApp.swift in Sources */,
+				20C4108F25FE46F300F8885F /* Pie.swift in Sources */,
 				20BAFDA925FDE500008BEF83 /* GridLayout.swift in Sources */,
 				20BAFDA525FDE291008BEF83 /* Grid.swift in Sources */,
 				20BAFDAD25FDE803008BEF83 /* Array+Identifiable.swift in Sources */,
 				20C7D49E25B15F9E00D01EBC /* EmojiMemoryGame.swift in Sources */,
+				20C4109325FE4AB500F8885F /* Cardify.swift in Sources */,
 				20BAFDB125FDF03D008BEF83 /* Array+Only.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
