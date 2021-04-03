@@ -13,16 +13,23 @@ struct Pie: Shape {
     var endAngle: Angle
     var clockwise: Bool = false
     
+    var animatableData: AnimatablePair<Double, Double> {
+        get {
+            AnimatablePair(startAngle.radians, endAngle.radians)
+        }
+        set {
+            startAngle = Angle.radians(newValue.first)
+            endAngle = Angle.radians(newValue.second)
+        }
+    }
+    
+    
     func path(in rect: CGRect) -> Path {
         let center = CGPoint(x: rect.midX, y: rect.midY)
         let radius = min(rect.size.height, rect.size.width) / 2
         let start = CGPoint(
             x: center.x + radius * cos(CGFloat(startAngle.radians)),
             y: center.y + radius * sin(CGFloat(startAngle.radians))
-        )
-        let end = CGPoint(
-            x: center.x + radius * cos(CGFloat(endAngle.radians)),
-            y: center.y + radius * sin(CGFloat(endAngle.radians))
         )
         var p = Path()
         p.move(to: center)
