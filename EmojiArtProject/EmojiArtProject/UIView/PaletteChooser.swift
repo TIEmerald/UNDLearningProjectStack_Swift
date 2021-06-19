@@ -29,8 +29,9 @@ struct PaletteChooser: View {
                     self.showPaletteEditor = true
                 }
                 .popover(isPresented: $showPaletteEditor, content: {
-                    PaletteEditor()
-                        .frame(minWidth: 300, maxWidth: 500)
+                    PaletteEditor(chosenPalette: self.$chosenPalette)
+                        .environmentObject(self.document)
+                        .frame(minWidth: 300, minHeight: 500)
                 })
         }
         .fixedSize(horizontal: true, vertical: false)
@@ -39,9 +40,54 @@ struct PaletteChooser: View {
 
 struct PaletteEditor: View {
     
+    @EnvironmentObject var document: EmojiArtDocument
+    @Binding var chosenPalette: String
+    @State var paletteName: String = ""
+    @State var emojisToAdd: String = ""
+    
     var body: some View {
-        Text("Palette Editor")
+        VStack(spacing: 0) {
+            Text("Palette Editor").font(.headline).padding()
+            Form {
+                Section {
+                    TextField("Palette Name", text: $paletteName) { began in
+                        if !began {
+                            self.document.renamePalette(self.chosenPalette, to: self.paletteName)
+                        }
+                    }
+                    .padding()
+                    TextField("Add Emoji", text: $emojisToAdd) { began in
+                        if !began {
+                            self.chosenPalette = self.document.addEmoji(self.emojisToAdd, toPalette: self.chosenPalette)
+                            self.emojisToAdd = ""
+                        }
+                    }
+                    .padding()
+                }
+                Section(header: Text("Remove Emoji")) {
+                    Grid(chosenPalette.map { String($0) }, id: \.self){ emoji in
+                        Text(emoji).font(Font.system(size: self.fontSize))
+                            .onTapGesture {
+                                self.chosenPalette = self.document.removeEmoji(emoji, fromPalette: self.chosenPalette)
+                            }
+                        
+                    }
+                    .frame(height: self.height)
+                }
+            }
+        }
+        .onAppear {
+            self.paletteName = self.document.paletteNames[self.chosenPalette] ?? ""
+        }
     }
+    
+    
+    // MARK: - Drawing Constants
+    var height: CGFloat {
+        CGFloat((chosenPalette.count - 1) / 6) * 70 + 70
+    }
+    
+    let fontSize: CGFloat = 40
 }
 
 struct PaletteChooser_Previews: PreviewProvider {
