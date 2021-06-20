@@ -29,7 +29,7 @@ struct PaletteChooser: View {
                     self.showPaletteEditor = true
                 }
                 .popover(isPresented: $showPaletteEditor, content: {
-                    PaletteEditor(chosenPalette: self.$chosenPalette)
+                    PaletteEditor(chosenPalette: self.$chosenPalette, isShowing: self.$showPaletteEditor)
                         .environmentObject(self.document)
                         .frame(minWidth: 300, minHeight: 500)
                 })
@@ -42,12 +42,21 @@ struct PaletteEditor: View {
     
     @EnvironmentObject var document: EmojiArtDocument
     @Binding var chosenPalette: String
+    @Binding var isShowing: Bool
     @State var paletteName: String = ""
     @State var emojisToAdd: String = ""
     
     var body: some View {
         VStack(spacing: 0) {
-            Text("Palette Editor").font(.headline).padding()
+            ZStack {
+                Text("Palette Editor").font(.headline).padding()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.isShowing = false
+                    }, label: { Text("Done") }).padding()
+                }
+            }
             Form {
                 Section {
                     TextField("Palette Name", text: $paletteName) { began in
